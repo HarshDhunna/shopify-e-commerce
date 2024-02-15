@@ -1,31 +1,90 @@
 {
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "build/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "api/(.*)",
-      "dest": "index.js"
-    },
-    {
-      "src": "web-hook",
-      "dest": "index.js"
-    },
-
-    {
-      "src": "/",
-      "dest": "build/index.html"
-    },
-    {
-      "src": "/(.+)",
-      "dest": "build/$1"
-    }
-  ]
-}
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "build/**",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "api/products",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/products/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/categories",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/categories/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/brands",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/brands/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/users",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/users/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/auth",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/auth/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/cart",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/cart/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/orders",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/orders/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/web-hook",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/create-payment-intent",
+        "dest": "index.js"
+      },
+      {
+        "src": "api/send-mail",
+        "dest": "index.js"
+      },
+      {
+        "src": "/",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/(.+)",
+        "dest": "build/$1"
+      }
+    ]
+  }
