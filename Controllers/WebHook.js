@@ -1,4 +1,4 @@
-const stripe = require("stripe")(process.env.SK_STRIPE);
+const stripe = require("stripe")(`${process.env.SK_STRIPE}`);
 // Replace this endpoint secret with your endpoint's unique secret
 // If you are testing with the CLI, find the secret by running 'stripe listen'
 // If you are using an endpoint defined with the API or dashboard, look in your webhook settings

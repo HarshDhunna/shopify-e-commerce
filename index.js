@@ -8,28 +8,31 @@ require("dotenv").config();
 
 const passport = require("./config/passport.js");
 const isAuthenticated = passport.authenticate("jwt", { session: false });
-const productRoutes = require("./routes/productRoutes");
-const brandRoutes = require("./routes/brandRoutes");
-const categoryRoutes = require("./routes/categoryRoutes");
-const userRoutes = require("./routes/userRoutes");
-const authRoutes = require("./routes/authRoutes");
-const cartRoutes = require("./routes/cartRoutes");
-const orderRoutes = require("./routes/orderRoutes");
-const { createPaymentIntent } = require("./Controllers/createPaymentIntent.js");
+const productRoutes = require("./routes/productRoutes.js");
+const brandRoutes = require("./routes/brandRoutes.js");
+const categoryRoutes = require("./routes/categoryRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
+const authRoutes = require("./routes/authRoutes.js");
+const cartRoutes = require("./routes/cartRoutes.js");
+const orderRoutes = require("./routes/orderRoutes.js");
+const {
+  createPaymentIntent,
+} = require("./Controllers/createPaymentIntent.js.js");
 const { webHook } = require("./Controllers/WebHook.js");
 const { sendMail } = require("./common/mail.js");
 
+const path = require("path");
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(process.env.MONGO_CONNECTION);
+  await mongoose.connect(`${process.env.MONGO_CONNECTION}`);
   console.log("database connected");
 }
 
-app.use(express.static("build"));
+app.use(express.static(path.resolve(__dirname, "build")));
 // Session middleware
 
 // Passport middleware

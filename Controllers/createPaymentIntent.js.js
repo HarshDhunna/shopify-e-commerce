@@ -1,5 +1,5 @@
 const discountedPrice = require("../common/constants.js");
-const stripe = require("stripe")(process.env.SK_STRIPE);
+const stripe = require("stripe")(`${process.env.SK_STRIPE}`);
 const YOUR_DOMAIN = "";
 
 exports.createPaymentIntent = async (req, res) => {
