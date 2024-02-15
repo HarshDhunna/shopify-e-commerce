@@ -42,7 +42,7 @@ app.use(passport.initialize());
 // CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://shopify-e-commerce.vercel.app/",
     exposedHeaders: ["X-Total-Count"],
     credentials: true,
   })
